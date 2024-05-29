@@ -63,7 +63,7 @@ export default function Quiz(){
             <div className="bg-white p-10 rounded-xl w-[100%] md:w-[650px]  drop-shadow-xl">
                 <div id="pertanyaan" className={isDone ? 'hidden' : 'block'}>
                     <p className="text-slate-500 mb-1 text-sm">Pertanyaan {currentQuestion}</p>
-                    <p className="font-bold text-lg">{dataPertanyaan[currentQuestion-1].pertanyaan}</p>
+                    <p className="font-bold text-lg text-black">{dataPertanyaan[currentQuestion-1].pertanyaan}</p>
                     <p className="text-red-600 text-sm mt-1">{message}</p>
                     <Questions currentQuestion={currentQuestion} daftarJawaban={daftarJawaban} handleChange={handleChange} />
 
