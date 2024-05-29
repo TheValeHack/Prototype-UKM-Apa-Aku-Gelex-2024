@@ -130,7 +130,7 @@ export default function Quiz(){
                                 rankingUKM.map((item, index) => {
                                     if(index <= 2){
                                         return (
-                                            <tr>
+                                            <tr key={index}>
                                                 <td className="border px-6 py-3 text-center">{index+1}</td>
                                                 <td className="border px-6 py-3">{item.nama}</td>
                                             </tr>
