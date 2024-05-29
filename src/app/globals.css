@@ -18,12 +18,10 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: #f8d58a;
+  background-image: url('https://ukm.ugm.ac.id/2023/gelex/_next/static/media/acrylic_desk.aae734d7.png');
+  background-size: cover;
+  background-blend-mode: soft-light;
 }
 
 @layer utilities {
