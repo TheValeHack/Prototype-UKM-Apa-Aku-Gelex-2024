@@ -3,9 +3,8 @@
 import { dataPertanyaan, Pertanyaan, UKM } from "@/data/data"
 import calculateHasil from "@/util/calculateHasil";
 import { useState } from "react"
-import Image from "next/image";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import UKMRanking from "@/components/quiz/UKMRanking";
+import Questions from "@/components/quiz/Questions";
 
 export default function Quiz(){
     const [daftarJawaban, setDaftarJawaban] = useState<DaftarJawaban>({});
@@ -66,27 +65,7 @@ export default function Quiz(){
                     <p className="text-slate-500 mb-1 text-sm">Pertanyaan {currentQuestion}</p>
                     <p className="font-bold text-lg">{dataPertanyaan[currentQuestion-1].pertanyaan}</p>
                     <p className="text-red-600 text-sm mt-1">{message}</p>
-                    {
-                        dataPertanyaan[currentQuestion-1].jawaban[0].daftarJawaban.map((item, index) => {
-                            const question: Pertanyaan = dataPertanyaan[currentQuestion-1]
-
-                            return (
-                                <div key={index} className={"border-2 mt-3 p-3 rounded-lg " + (daftarJawaban[question.id] === item.tipe ? 'border-[#ffb730]' : '')} onClick={() => handleChange(question.id, item.tipe)}>
-                                    <label className="mr-2">
-                                    <input
-                                        className="mr-4"
-                                        type="radio"
-                                        name={`question-${question.id}`}
-                                        value={item.tipe}
-                                        checked={daftarJawaban[question.id] === item.tipe}
-                                        onChange={() => handleChange(question.id, item.tipe)}
-                                    />
-                                    {item.tipe.charAt(0).toUpperCase() + item.tipe.slice(1)}
-                                    </label>
-                                </div>
-                            )
-                        })
-                    }
+                    <Questions currentQuestion={currentQuestion} daftarJawaban={daftarJawaban} handleChange={handleChange} />
 
                     <div className="flex justify-between">
                         {
@@ -108,42 +87,7 @@ export default function Quiz(){
                     </div>
                 </div>
                 <div id="hasil" className={isDone ? 'block' : 'hidden'}>
-                    <h1 className="text-lg font-bold text-center">Kamu paling cocok dengan UKM:</h1>
-                    <Image
-                        className="mx-auto mt-3" 
-                        width={160}
-                        height={160}
-                        alt="logo UKM"
-                        src={rankingUKM.length > 0 ? rankingUKM[0].logo : ''}
-                    />
-                    <h1 className="text-2xl font-bold text-center mt-3">{rankingUKM.length > 0 ? rankingUKM[0].nama : ''}</h1>
-                    <p className="mt-4 text-justify text-slate-900">Berdasarkan analisa kami, kamu paling cocok dengan UKM {rankingUKM.length > 0 ? rankingUKM[0].nama : ''}! Kamu bisa kepoin sosial media mereka untuk tau lebih lanjut tentang UKM tersebut. Bukan cuma itu aja, berikut Top 3 UKM yang paling cocok denganmu berdasarkan analisa kami!</p>
-                    <table className="bg-white mt-5 border-collapse w-[100%] rounded-xl overflow-hidden">
-                        <thead>
-                            <tr>
-                            <th className="bg-blue-50 border text-left px-6 py-3 w-[20px]">Rank</th>
-                            <th  className="bg-blue-50 border text-left px-6 py-3">UKM</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                rankingUKM.map((item, index) => {
-                                    if(index <= 2){
-                                        return (
-                                            <tr key={index}>
-                                                <td className="border px-6 py-3 text-center">{index+1}</td>
-                                                <td className="border px-6 py-3">{item.nama}</td>
-                                            </tr>
-                                        )
-                                    }
-                                })
-                            }
-                        </tbody>  
-                    </table>
-                    <button onClick={handleReset} className="font-semibold mt-6 mx-auto px-6 py-3 rounded-xl bg-[#ee5a5a] text-white flex transition-all hover:bg-[#fc6f6f] hover:translate-y-[-2px]">
-                        Mulai ulang
-                        <FontAwesomeIcon className="size-5 ml-5" icon={faArrowRight} />
-                    </button>
+                    <UKMRanking rankingUKM={rankingUKM} handleReset={handleReset} />
                 </div>
             </div>
         </div>
