@@ -19,8 +19,8 @@ export default function UKMRanking({ rankingUKM, handleReset }: {rankingUKM: UKM
                 <table className="bg-white mt-5 border-collapse w-[100%] rounded-xl overflow-hidden">
                     <thead>
                         <tr>
-                        <th className="bg-blue-50 border text-left px-6 py-3 w-[20px]">Rank</th>
-                        <th  className="bg-blue-50 border text-left px-6 py-3">UKM</th>
+                        <th className="bg-blue-50 border text-left px-6 py-3 w-[20px] text-black">Rank</th>
+                        <th  className="bg-blue-50 border text-left px-6 py-3 text-black">UKM</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,8 +29,8 @@ export default function UKMRanking({ rankingUKM, handleReset }: {rankingUKM: UKM
                                 if(index <= 2){
                                     return (
                                         <tr key={index}>
-                                            <td className="border px-6 py-3 text-center">{index+1}</td>
-                                            <td className="border px-6 py-3">{item.nama}</td>
+                                            <td className="border px-6 py-3 text-center text-black">{index+1}</td>
+                                            <td className="border px-6 py-3 text-black">{item.nama}</td>
                                         </tr>
                                     )
                                 }
