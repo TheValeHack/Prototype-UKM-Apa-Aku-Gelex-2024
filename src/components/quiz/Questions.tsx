@@ -13,9 +13,9 @@ export default function Questions({ currentQuestion, daftarJawaban, handleChange
 
                     return (
                         <div key={index} className={"border-2 mt-3 p-3 rounded-lg " + (daftarJawaban[question.id] === item.tipe ? 'border-[#ffb730]' : '')} onClick={() => handleChange(question.id, item.tipe)}>
-                            <label className="mr-2">
+                            <label className="mr-2 text-black">
                             <input
-                                className="mr-4"
+                                className="mr-4 text-black"
                                 type="radio"
                                 name={`question-${question.id}`}
                                 value={item.tipe}

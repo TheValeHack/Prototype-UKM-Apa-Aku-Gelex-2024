@@ -6,7 +6,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 export default function UKMRanking({ rankingUKM, handleReset }: {rankingUKM: UKM[], handleReset: () => void}){
     return (
         <div>
-            <h1 className="text-lg font-bold text-center">Kamu paling cocok dengan UKM:</h1>
+            <h1 className="text-lg font-bold text-center text-black">Kamu paling cocok dengan UKM:</h1>
                 <Image
                     className="mx-auto mt-3" 
                     width={160}
