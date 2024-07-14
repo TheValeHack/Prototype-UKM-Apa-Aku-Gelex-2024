@@ -22,7 +22,7 @@ export default function Questions({ currentQuestion, daftarJawaban, handleChange
                                 checked={daftarJawaban[question.id] === item.tipe}
                                 onChange={() => handleChange(question.id, item.tipe)}
                             />
-                            {item.tipe.charAt(0).toUpperCase() + item.tipe.slice(1)}
+                            {dataPertanyaan[currentQuestion-1].teksJawaban[item.tipe]}
                             </label>
                         </div>
                     )

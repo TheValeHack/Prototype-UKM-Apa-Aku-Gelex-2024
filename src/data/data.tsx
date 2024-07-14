@@ -14,10 +14,17 @@ export interface Jawaban {
     ukmId: number,
     daftarJawaban: BobotJawaban[] 
 }
+export interface TeksJawaban {
+    agree: string,
+    netral: string,
+    disagree: string
+}
+
 
 export interface Pertanyaan {
     id: number,
     pertanyaan: string,
+    teksJawaban: TeksJawaban,
     jawaban: Jawaban[]
 }
 
@@ -58,6 +65,11 @@ export const dataPertanyaan: Pertanyaan[] = [
     {
         id: 1,
         pertanyaan: "Apakah kamu suka kegiatan yang mengandalkan otak kanan daripada otak kiri?",
+        teksJawaban: {
+            "agree": "Iya saya suka",
+            "netral": "Saya biasa aja",
+            "disagree": "Saya tidak suka"
+        },
         jawaban: [
             {
                 ukmId: 1,
@@ -150,6 +162,11 @@ export const dataPertanyaan: Pertanyaan[] = [
     {
         id: 2,
         pertanyaan: "Apakah kamu suka kegiatan yang mengandalkan gerakan fisik?",
+        teksJawaban: {
+            "agree": "Iya saya suka",
+            "netral": "Saya biasa aja",
+            "disagree": "Saya tidak suka"
+        },
         jawaban: [
             {
                 ukmId: 1,
@@ -242,6 +259,11 @@ export const dataPertanyaan: Pertanyaan[] = [
     {
         id: 3,
         pertanyaan: "Apakah kamu suka dengan nuansa yang lebih modern daripada klasik?",
+        teksJawaban: {
+            "agree": "Iya saya suka",
+            "netral": "Saya biasa aja",
+            "disagree": "Saya tidak suka"
+        },
         jawaban: [
             {
                 ukmId: 1,
@@ -334,6 +356,11 @@ export const dataPertanyaan: Pertanyaan[] = [
     {
         id: 4,
         pertanyaan: "Apakah kamu lebih sering menggunakan alat-alat elektronik daripada alat-alat klasik?",
+        teksJawaban: {
+            "agree": "Iya saya suka",
+            "netral": "Saya biasa aja",
+            "disagree": "Saya tidak suka"
+        },
         jawaban: [
             {
                 ukmId: 1,
